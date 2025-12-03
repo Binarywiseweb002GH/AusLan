@@ -1211,44 +1211,8 @@ Achieve lasting success with smart, modern digital solutions.</p>
   <script src="assets/js/search.js"></script>
    <script src="assets/js/contact-form.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("rf8opFDE0m8LOp-lE"); // Replace with your Public Key
-   })();
-</script>
-<script>
-document.getElementById('submit').addEventListener('click', function(event){
-    event.preventDefault(); // Prevent default form submission
 
-    // Get form values
-    const name = document.getElementById('fname').value;
-    const phone = document.getElementById('phone').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.querySelector('textarea[name="msg"]').value;
-
-    // Prepare template parameters
-    const templateParams = {
-        fname: name,
-        phone: phone,
-        email: email,
-        subject: subject, // <-- added
-        msg: message
-    };
-
-    // Send email
-    emailjs.send('service_ldbswhm', 'template_eyqddl9', templateParams)
-    .then(function(response) {
-       alert('Message sent successfully!');
-       document.querySelector('form').reset(); // Reset form
-    }, function(error) {
-       alert('Failed to send message. Please try again.');
-       console.error('EmailJS Error:', error);
-    });
-});
-</script>
-
+   
 
 
   
