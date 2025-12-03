@@ -1075,6 +1075,10 @@ Achieve lasting success with smart, modern digital solutions.</p>
                 <input type="email" placeholder="Email" name="email" id="email">
               </li>
               <li>
+  <input type="text" placeholder="Subject" name="subject" id="subject">
+</li>
+
+              <li>
                 <textarea placeholder="Message" rows="6" name="msg"></textarea>
               </li>
             </ul>
@@ -1221,6 +1225,7 @@ document.getElementById('submit').addEventListener('click', function(event){
     const name = document.getElementById('fname').value;
     const phone = document.getElementById('phone').value;
     const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
     const message = document.querySelector('textarea[name="msg"]').value;
 
     // Prepare template parameters
@@ -1228,6 +1233,7 @@ document.getElementById('submit').addEventListener('click', function(event){
         fname: name,
         phone: phone,
         email: email,
+        subject: subject, // <-- added
         msg: message
     };
 
