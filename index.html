@@ -1063,40 +1063,26 @@ Achieve lasting success with smart, modern digital solutions.</p>
       </div>
       <div class="row wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.6s">
         <div class="col-xl-12 col-lg-12 mr-auto ml-auto">
-          <form class="input-label ajax-contact">
+          <form action="#" method="POST" class="input-label ajax-contact">
+            <ul class="list-unstyled p-0 float-left w-100 mb-0">
+              <li>
+                <input type="text" placeholder="Name" name="fname" id="fname">
+              </li>
+              <li>
+                <input type="tel" placeholder="Phone" name="phone" id="phone">
+              </li>
+              <li>
+                <input type="email" placeholder="Email" name="email" id="email">
+              </li>
+              <li>
+                <textarea placeholder="Message" rows="6" name="msg"></textarea>
+              </li>
+            </ul>
+           <div class="text-center">
+    <button type="submit" id="submit" class="secondary_btn">Send Now</button>
+</div>
 
-                            <div class="row">
-                                <div class="form-group col-sm-6">
-                                    <input type="text" class="form-control" placeholder="Name" name="name" id="name" required="">
-                                    <i class="far fa-user text-theme"></i>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <input type="email" class="form-control" placeholder="Email" name="email" id="email" required="">
-                                    <i class="far fa-envelope text-theme"></i>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <input type="number" class="form-control" placeholder="Number" name="number" id="number" required="">
-                                    <i class="far fa-phone text-theme"></i>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <select name="subject" id="subject" class="form-select">
-                                        <option value="" disabled selected hidden>Service</option>
-                                        <option value="Security Consulting">Security Consulting</option>
-                                        <option value="Security Training">Security Training</option>
-                                        <option value="Data Security">Data Security</option>
-                                        <option value="Security Assessment">Security Assessment </option>
-                                    </select>
-                                    <i class="far fa-angle-down text-theme"></i>
-                                </div>
-                                <div class="form-group col-12">
-                                    <textarea name="message" id="message" cols="30" placeholder="Write Message" rows="3" class="form-control" required=""></textarea>
-                                </div>
-                                <div class="form-btn col-12 mt-10">
-                                    <button class="ot-btn w-100">Submit Now <i class="far fa-long-arrow-right ms-2"></i></button>
-                                </div>
-                            </div>
-                            <p class="form-messages mb-0 mt-3"></p>
-                        </form>
+          </form>
           <!-- col -->
         </div>
         <!-- row -->
@@ -1221,6 +1207,43 @@ Achieve lasting success with smart, modern digital solutions.</p>
   <script src="assets/js/search.js"></script>
    <script src="assets/js/contact-form.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("rf8opFDE0m8LOp-lE"); // Replace with your Public Key
+   })();
+</script>
+<script>
+document.getElementById('submit').addEventListener('click', function(event){
+    event.preventDefault(); // Prevent default form submission
+
+    // Get form values
+    const name = document.getElementById('fname').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const message = document.querySelector('textarea[name="msg"]').value;
+
+    // Prepare template parameters
+    const templateParams = {
+        fname: name,
+        phone: phone,
+        email: email,
+        msg: message
+    };
+
+    // Send email
+    emailjs.send('service_ldbswhm', 'template_eyqddl9', templateParams)
+    .then(function(response) {
+       alert('Message sent successfully!');
+       document.querySelector('form').reset(); // Reset form
+    }, function(error) {
+       alert('Failed to send message. Please try again.');
+       console.error('EmailJS Error:', error);
+    });
+});
+</script>
+
+
 
   
 </body>
