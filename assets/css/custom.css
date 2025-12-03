@@ -770,7 +770,7 @@ span {
 
 /* FOOTER SECTION STYLING */
 .footer-con {
-    background-image: url(../images/footer-bg-img.jpg);
+    background-image: url(../images/footer-bg-img-AusLan-Technologies.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 70px;
@@ -1295,7 +1295,7 @@ span {
 
 /* CALL TO ACTION SECTION */
 .call-to-action-con {
-    background-image: url(../images/cta-banner-img.jpg);
+    background-image: url(../images/cta-banner-img-AusLan-Technologies.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -1321,7 +1321,7 @@ span {
 
 /* HOW IT WORKS SECTION */
 .how-it-works-con {
-    background-image: url(../images/how-it-works-banner1-img.png);
+    background-image: url(../images/how-it-works-banner-img-AusLan\ Technologies.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
