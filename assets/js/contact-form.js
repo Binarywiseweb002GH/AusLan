@@ -4,20 +4,18 @@
     var contactForm = {
         form: '.ajax-contact',
         invalidCls: 'is-invalid',
-
-        // 🔥 Subject added here
-        validation: '[name="name"],[name="email"],[name="number"],[name="subject"],[name="message"]',
-
+        validation: '[name="name"],[name="email"],[name="number"],[name="message"]',
         emailField: '[name="email"]',
-        messages: $('<p class="form-messages mb-0 mt-3"></p>'),
+        messages: $('<p class="form-messages mb-0 mt-3"></p>'), // We'll append dynamically if not present
 
         emailjsConfig: {
-            serviceId: 'service_ldbswhm',
-            templateId: 'template_eyqddl9',
-            publicKey: 'rf8opFDE0m8LOp-lE'
+            serviceId: 'service_ldbswhm',    // Your EmailJS Service ID
+            templateId: 'template_eyqddl9',  // Your EmailJS Template ID
+            publicKey: 'rf8opFDE0m8LOp-lE'  // Your EmailJS Public Key
         },
 
         init: function() {
+            // Append message container if not present
             if ($(this.form + ' .form-messages').length === 0) {
                 $(this.form).append(this.messages);
             } else {
@@ -40,16 +38,14 @@
             if (this.validateForm()) {
                 this.showLoading();
 
-                // 🔥 Subject added here
                 var formData = {
                     name: $(this.form + ' [name="name"]').val(),
                     email: $(this.form + ' [name="email"]').val(),
                     number: $(this.form + ' [name="number"]').val(),
-                    subject: $(this.form + ' [name="subject"]').val(),
                     message: $(this.form + ' [name="message"]').val()
                 };
 
-                if (window.emailjs && this.emailjsConfig.publicKey) {
+                if (window.emailjs && this.emailjsConfig.publicKey && this.emailjsConfig.publicKey !== 'YOUR_PUBLIC_KEY_HERE') {
                     this.sendWithEmailJS(formData);
                 } else {
                     console.log('EmailJS not configured. Form data:', formData);
@@ -136,10 +132,6 @@
                     from_name: formData.name,
                     from_email: formData.email,
                     phone_number: formData.number,
-
-                    // 🔥 SUBJECT SENT TO EMAILJS
-                    subject: formData.subject,
-
                     message: formData.message,
                     reply_to: formData.email
                 },
